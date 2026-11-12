@@ -261,7 +261,7 @@ Also only published as a git-sourced Helm chart:
 ```bash
 source ~/.eoepca/state
 if [ "${ENABLE_GEOPARQUET_EXPORT}" = "yes" ]; then
-  git clone --depth 1 --branch v0.2.4 https://github.com/developmentseed/pgstac-geoparquet-exporter /tmp/pgstac-geoparquet-exporter
+  git clone --depth 1 --branch v0.3.2 https://github.com/developmentseed/pgstac-geoparquet-exporter /tmp/pgstac-geoparquet-exporter
   helm upgrade -i geoparquet-exporter /tmp/pgstac-geoparquet-exporter/charts/pgstac-geoparquet-exporter \
     --namespace data-access \
     --values geoparquet-exporter/generated-values.yaml
