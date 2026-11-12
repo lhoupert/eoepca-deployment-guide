@@ -44,6 +44,9 @@ postgrescluster:
 
 pgstacBootstrap:
   enabled: true
+  image:
+    name: ghcr.io/stac-utils/pgstac-pypgstac
+    tag: "v0.10.0@sha256:b7d0a6caf9a51717ca78fe871b6615ae1b2004de725e700209c21de3e4b40701"
   settings:
     loadSamples: false
     pgstacSettings:
@@ -59,6 +62,7 @@ pgstacBootstrap:
 raster:
   enabled: true
   image:
+    name: ghcr.io/stac-utils/titiler-pgstac
     tag: "3.2.1@sha256:1ec6137a1ff05d6766ce983b3abd06edd98e90cdec85d37b4d67ed2a08182274"
   ingress:
     path: "/raster"
@@ -78,6 +82,7 @@ raster:
 multidim:
   enabled: true
   image:
+    name: ghcr.io/developmentseed/titiler-md-demo
     tag: "0f63f151a05f66a3f026ab2d85575e6083aa0f6b@sha256:c8296740da912247feda5f732a25f9a55a00c191193bb9a904f7565545f74436"
   ingress:
     path: "/multidim"
@@ -95,6 +100,7 @@ multidim:
 stac:
   enabled: true
   image:
+    name: ghcr.io/stac-utils/stac-fastapi-pgstac
     tag: "7.2.1@sha256:497af2e8c62a3ba4adb3988fec53f28dadb2bf1351fd555ee42bea335b3a6627"
   # The chart's default command targets a module-level `app`, removed in stac-fastapi-pgstac 6.4.0
   command:
@@ -130,6 +136,7 @@ stac:
 vector:
   enabled: true
   image:
+    name: ghcr.io/developmentseed/tipg
     tag: "1.6.1@sha256:30b88f2a6b73317b7221da2eadbbf4bc44cdfc6f0db1d106fbc72264fa9fc1db"
   settings:
     resources:
