@@ -132,7 +132,7 @@ vector:
 stac-auth-proxy:
   enabled: true
   image:
-    tag: "v1.2.0"
+    tag: "v1.3.1@sha256:aa75e05233489dc1ed5bffd1bc76f088e3ffec81b56e75176ce1ff769b106e50"
   service:
     port: 8080
   env:
