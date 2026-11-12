@@ -211,6 +211,10 @@ helm upgrade -i eoapi eoapi/eoapi \
   --values eoapi/generated-values.yaml
 ```
 
+!!! warning "Upgrading an existing installation"
+    pgSTAC migrations only go forward. Before upgrading, back up the database and note its version
+    (`SELECT pgstac.get_version();`). Only a restore from that backup undoes the upgrade.
+
 #### Deploy STAC Manager
 ```bash
 helm repo add stac-manager https://stac-manager.ds.io/

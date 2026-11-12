@@ -3,7 +3,7 @@
 DEFAULT_COLLECTIONS_FILE="./collections.json"
 DEFAULT_ITEMS_FILE="./items.json"
 # The loader runs from the pgstac image the deployment uses: keep in step with pgstacBootstrap.image in ../eoapi/values-template.yaml
-PGSTAC_IMAGE="${PGSTAC_IMAGE:-ghcr.io/stac-utils/pgstac-pypgstac:v0.10.0@sha256:b7d0a6caf9a51717ca78fe871b6615ae1b2004de725e700209c21de3e4b40701}"
+PGSTAC_IMAGE="${PGSTAC_IMAGE:-ghcr.io/stac-utils/pgstac-pypgstac:v0.10.1@sha256:f5fbd588c6338ac85f6fb9de0d276b06f08f673a55abe05ace8b2a26c77b8da5}"
 
 if [ "$#" -eq 2 ]; then
     EOAPI_COLLECTIONS_FILE="$1"
