@@ -256,6 +256,13 @@ eoapi-notifier:
   enabled: false
 {{- end }}
 browser:
+  image:
+    name: ghcr.io/radiantearth/stac-browser
+    tag: "5.2.0@sha256:c166557bd8b6f324c89870ba4cfac8fcf11c9058fc3baad61ca9bff53bf10899"
+  # The upstream image is not built for a sub-path: set it at runtime
+  extraEnv:
+    - name: SB_pathPrefix
+      value: "/browser/"
   catalogUrl: "{{ getenv "HTTP_SCHEME" }}://eoapi.{{ getenv "INGRESS_HOST" }}/stac"
   catalogTitle: "EOEPCA Data Catalog"
   catalogImage: "https://eoepca.org/media_portal/images/eoepca_logo_no_bg.original.png"
