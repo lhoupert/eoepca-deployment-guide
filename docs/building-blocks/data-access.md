@@ -216,7 +216,7 @@ helm upgrade -i eoapi eoapi/eoapi \
 helm repo add stac-manager https://stac-manager.ds.io/
 helm repo update stac-manager
 helm upgrade -i stac-manager stac-manager/stac-manager \
-  --version 1.0.3 \
+  --version 1.0.4 \
   --namespace data-access \
   --values stac-manager/generated-values.yaml
 ```

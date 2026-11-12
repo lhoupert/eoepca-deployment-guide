@@ -50,7 +50,7 @@ The versions deployed by this guide, compared with Release 2.0. Helm chart versi
 | Resource Discovery | `rm-resource-catalogue` | 2.0.0 | 2.1.0 |
 | Data Access | eoAPI | 0.7.12 | 0.13.1 |
 | | Crunchy Postgres Operator (PGO) | 5.6.0 | 6.0.3 |
-| | STAC Manager | 0.0.11 | 1.0.3 |
+| | STAC Manager | 0.0.11 | 1.0.4 |
 | | titiler-openeo | - | `titiler-openeo-v0.12.0` (image v0.9.1) |
 | | pgstac-geoparquet-exporter | - | v0.2.4 |
 | | eoapi-support | 0.1.7 | 0.1.7 |
