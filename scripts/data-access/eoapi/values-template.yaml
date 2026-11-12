@@ -58,6 +58,8 @@ pgstacBootstrap:
 
 raster:
   enabled: true
+  image:
+    tag: "3.2.1@sha256:1ec6137a1ff05d6766ce983b3abd06edd98e90cdec85d37b4d67ed2a08182274"
   ingress:
     path: "/raster"
   settings:
