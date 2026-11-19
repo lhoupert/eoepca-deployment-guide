@@ -44,6 +44,9 @@ postgrescluster:
 
 pgstacBootstrap:
   enabled: true
+  image:
+    name: ghcr.io/stac-utils/pgstac-pypgstac
+    tag: "v0.10.1@sha256:f5fbd588c6338ac85f6fb9de0d276b06f08f673a55abe05ace8b2a26c77b8da5"
   settings:
     loadSamples: false
     pgstacSettings:
@@ -58,6 +61,9 @@ pgstacBootstrap:
 
 raster:
   enabled: true
+  image:
+    name: ghcr.io/stac-utils/titiler-pgstac
+    tag: "3.2.1@sha256:1ec6137a1ff05d6766ce983b3abd06edd98e90cdec85d37b4d67ed2a08182274"
   ingress:
     path: "/raster"
   settings:
@@ -75,6 +81,9 @@ raster:
 
 multidim:
   enabled: true
+  image:
+    name: ghcr.io/developmentseed/titiler-md-demo
+    tag: "0f63f151a05f66a3f026ab2d85575e6083aa0f6b@sha256:c8296740da912247feda5f732a25f9a55a00c191193bb9a904f7565545f74436"
   ingress:
     path: "/multidim"
   settings:
@@ -90,6 +99,16 @@ multidim:
 
 stac:
   enabled: true
+  image:
+    name: ghcr.io/stac-utils/stac-fastapi-pgstac
+    tag: "7.2.2@sha256:6350436ecc8f08253b869f9dc56a35093510e902e73708aa174fc48b8614ccbb"
+  # The chart's default command targets a module-level `app`, removed in stac-fastapi-pgstac 6.4.0
+  command:
+    - "uvicorn"
+    - "stac_fastapi.pgstac.app:create_app"
+    - "--factory"
+    - "--host=$(HOST)"
+    - "--port=$(PORT)"
   autoscaling:
     enabled: true
     minReplicas: 2
@@ -116,6 +135,9 @@ stac:
 
 vector:
   enabled: true
+  image:
+    name: ghcr.io/developmentseed/tipg
+    tag: "1.6.1@sha256:30b88f2a6b73317b7221da2eadbbf4bc44cdfc6f0db1d106fbc72264fa9fc1db"
   settings:
     resources:
       limits:
@@ -132,7 +154,7 @@ vector:
 stac-auth-proxy:
   enabled: true
   image:
-    tag: "v1.2.0"
+    tag: "v1.3.1@sha256:aa75e05233489dc1ed5bffd1bc76f088e3ffec81b56e75176ce1ff769b106e50"
   service:
     port: 8080
   env:
@@ -241,6 +263,13 @@ eoapi-notifier:
   enabled: false
 {{- end }}
 browser:
+  image:
+    name: ghcr.io/radiantearth/stac-browser
+    tag: "5.2.0@sha256:c166557bd8b6f324c89870ba4cfac8fcf11c9058fc3baad61ca9bff53bf10899"
+  # The upstream image is not built for a sub-path: set it at runtime
+  extraEnv:
+    - name: SB_pathPrefix
+      value: "/browser/"
   catalogUrl: "{{ getenv "HTTP_SCHEME" }}://eoapi.{{ getenv "INGRESS_HOST" }}/stac"
   catalogTitle: "EOEPCA Data Catalog"
   catalogImage: "https://eoepca.org/media_portal/images/eoepca_logo_no_bg.original.png"

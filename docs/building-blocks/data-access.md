@@ -193,7 +193,7 @@ bash apply-secrets.sh
 
 ```bash
 helm upgrade --install pgo oci://registry.developers.crunchydata.com/crunchydata/pgo \
-  --version 6.0.1 \
+  --version 6.0.3 \
   --namespace data-access \
   --create-namespace \
   --values postgres/generated-values.yaml \
@@ -211,12 +211,16 @@ helm upgrade -i eoapi eoapi/eoapi \
   --values eoapi/generated-values.yaml
 ```
 
+!!! warning "Upgrading an existing installation"
+    pgSTAC migrations only go forward. Before upgrading, back up the database and note its version
+    (`SELECT pgstac.get_version();`). Only a restore from that backup undoes the upgrade.
+
 #### Deploy STAC Manager
 ```bash
 helm repo add stac-manager https://stac-manager.ds.io/
 helm repo update stac-manager
 helm upgrade -i stac-manager stac-manager/stac-manager \
-  --version 1.0.3 \
+  --version 1.0.4 \
   --namespace data-access \
   --values stac-manager/generated-values.yaml
 ```
@@ -261,7 +265,7 @@ Also only published as a git-sourced Helm chart:
 ```bash
 source ~/.eoepca/state
 if [ "${ENABLE_GEOPARQUET_EXPORT}" = "yes" ]; then
-  git clone --depth 1 --branch v0.2.4 https://github.com/developmentseed/pgstac-geoparquet-exporter /tmp/pgstac-geoparquet-exporter
+  git clone --depth 1 --branch v0.3.2 https://github.com/developmentseed/pgstac-geoparquet-exporter /tmp/pgstac-geoparquet-exporter
   helm upgrade -i geoparquet-exporter /tmp/pgstac-geoparquet-exporter/charts/pgstac-geoparquet-exporter \
     --namespace data-access \
     --values geoparquet-exporter/generated-values.yaml

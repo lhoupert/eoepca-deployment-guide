@@ -1,7 +1,7 @@
 fullnameOverride: "geoparquet-exporter"
 
 image:
-  tag: "0.2.4"
+  tag: "0.3.2@sha256:77820e90c33583ff23bc6d65e1624a5d150568eed974873a4c14ff43e52add64"
 
 stacApiUrl: "{{ getenv "HTTP_SCHEME" }}://eoapi.{{ getenv "INGRESS_HOST" }}/stac"
 
