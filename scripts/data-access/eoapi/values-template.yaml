@@ -63,7 +63,7 @@ raster:
   enabled: true
   image:
     name: ghcr.io/stac-utils/titiler-pgstac
-    tag: "3.2.1@sha256:1ec6137a1ff05d6766ce983b3abd06edd98e90cdec85d37b4d67ed2a08182274"
+    tag: "3.2.2@sha256:047f4e85140c101d5b2c7900973f1d4a62073f55ca947b81edd32f2cacb2f8a6"
   ingress:
     path: "/raster"
   settings:
