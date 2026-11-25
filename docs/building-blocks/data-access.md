@@ -193,7 +193,7 @@ bash apply-secrets.sh
 
 ```bash
 helm upgrade --install pgo oci://registry.developers.crunchydata.com/crunchydata/pgo \
-  --version 6.0.3 \
+  --version 6.0.4 \
   --namespace data-access \
   --create-namespace \
   --values postgres/generated-values.yaml \
