@@ -265,7 +265,7 @@ eoapi-notifier:
 browser:
   image:
     name: ghcr.io/radiantearth/stac-browser
-    tag: "5.2.0@sha256:c166557bd8b6f324c89870ba4cfac8fcf11c9058fc3baad61ca9bff53bf10899"
+    tag: "5.2.1@sha256:15c924ccceae6cd1bfadbc5a40067024ed3006cad22786ac153510e036a2ee6b"
   # The upstream image is not built for a sub-path: set it at runtime
   extraEnv:
     - name: SB_pathPrefix
