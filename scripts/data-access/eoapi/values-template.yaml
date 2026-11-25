@@ -101,7 +101,7 @@ stac:
   enabled: true
   image:
     name: ghcr.io/stac-utils/stac-fastapi-pgstac
-    tag: "7.2.2@sha256:6350436ecc8f08253b869f9dc56a35093510e902e73708aa174fc48b8614ccbb"
+    tag: "7.4.0@sha256:08fc16f6d536d36d8b07fe031275794ca04d07db942e0d08ac30bd14f7eb010b"
   # The chart's default command targets a module-level `app`, removed in stac-fastapi-pgstac 6.4.0
   command:
     - "uvicorn"
